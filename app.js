@@ -11,7 +11,7 @@ const options = {
   },
 };
 
-// api통신으로 받아온 데이터로 영화 카드를 만들어 container 클래스인 main태그에 붙여넣는 코드
+// api통신으로 받아온 데이터로 영화 카드를 만들어 container 클래스인 main태그에 붙여넣는 코드1
 function createCards(rows) {
   rows.forEach((el) => {
     let card_html = `
