@@ -1,120 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>Movie Search</title>
-    <style>
-      * {
-        font-family: "Gowun Dodum", sans-serif;
-      }
-      body {
-        margin: 0;
-        background-color: rgb(229, 241, 216);
-      }
-      .movie {
-        display: flex;
-        flex-direction: column;
-      }
 
-      .mytitle {
-        position: fixed;
-        display: flex;
-        z-index: 1;
-        justify-content: space-between;
-        align-items: center;
-        min-height: 75px;
-        width: 100%;
-        margin: 0;
-        background-color: black;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <title>Movie Search</title>
+  <style>
+    * {
+      font-family: "Gowun Dodum", sans-serif;
+    }
 
-      .logo {
-        height: 75px;
-        margin-left: 20px;
-      }
+    body {
+      margin: 0;
+      background-color: rgb(229, 241, 216);
+    }
 
-      /* grid 사용 */
+    .movie {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mytitle {
+      position: fixed;
+      display: flex;
+      z-index: 1;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 75px;
+      width: 100%;
+      margin: 0;
+      background-color: black;
+    }
+
+    .logo {
+      height: 75px;
+      margin-left: 20px;
+    }
+
+    /* grid 사용 */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 75px;
+    }
+
+    /* 간단한 반응형 */
+    @media (max-width: 1205px) {
       .container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 75px;
+        grid-template-columns: 1fr;
       }
-      /* 간단한 반응형 */
-      @media (max-width: 1205px) {
-        .container {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-      }
-      .container > div {
-        display: flex;
-        padding: 20px;
-        background-color: white;
-        border-radius: 10px;
-        margin: 20px;
-        transition: all 0.25s;
-      }
-      .container > div:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
-      }
+    }
 
-      .mvImg {
-        margin-right: 10px;
-      }
+    .container>div {
+      display: flex;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      margin: 20px;
+      transition: all 0.25s;
+    }
 
-      .noResult {
-        position: absolute;
-        display: none;
-        top: 300px;
-        align-self: center;
-      }
+    .container>div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+    }
 
-      .search {
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-      }
-      .inputbox {
-        width: 100%;
-        padding: 5px 50px 5px 10px;
-        font-size: 20px;
-        border-radius: 15px;
-        border: none;
-      }
-      .submitBtn {
-        position: absolute;
-        top: 10px;
-        left: 85%;
-        border: none;
-        background-color: white;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="movie">
-      <header class="mytitle">
-        <img src="netflix-logo.png" class="logo" />
-        <form class="search" id="form">
-          <!-- 검색창에 자동 커서 -->
-          <input type="text" class="inputbox" autofocus />
-          <button type="submit" class="submitBtn">
-            <img src="search.png" width="20px" />
-          </button>
-        </form>
-      </header>
-      <main class="container"></main>
-      <div class="noResult">검색결과가 없습니다.</div>
-    </div>
-    <script src="app.js" />
-  </body>
+    .mvImg {
+      margin-right: 10px;
+    }
+
+    .noResult {
+      position: absolute;
+      display: none;
+      top: 300px;
+      align-self: center;
+    }
+
+    .search {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .inputbox {
+      width: 100%;
+      padding: 5px 50px 5px 10px;
+      font-size: 20px;
+      border-radius: 15px;
+      border: none;
+    }
+
+    .submitBtn {
+      position: absolute;
+      top: 10px;
+      left: 85%;
+      border: none;
+      background-color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="movie">
+    <header class="mytitle">
+      <img src="netflix-logo.png" class="logo" />
+      <form class="search" id="form">
+        <!-- 검색창에 자동 커서 -->
+        <input type="text" class="inputbox" autofocus />
+        <button type="submit" class="submitBtn">
+          <img src="search.png" width="20px" />
+        </button>
+      </form>
+    </header>
+    <main class="container"></main>
+    <div class="noResult">검색결과가 없습니다.</div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+
 </html>
